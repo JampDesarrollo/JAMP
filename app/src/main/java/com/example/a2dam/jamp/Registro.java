@@ -1,6 +1,5 @@
 package com.example.a2dam.jamp;
 
-import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.InputType;
@@ -9,7 +8,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 /**
  * @author Markel Oñate
@@ -59,6 +57,7 @@ public class Registro extends AppCompatActivity implements View.OnClickListener{
         texteMail =findViewById(R.id.tfeMail);
         pass1=findViewById(R.id.pfPassword1);
         pass2=findViewById(R.id.pfPassword2);
+        imLoading=findViewById(R.id.imLoading);
 
         btnRegistrarse=findViewById(R.id.btnRegistrarse);
         btnRegistrarse.setOnClickListener(this);
@@ -71,9 +70,6 @@ public class Registro extends AppCompatActivity implements View.OnClickListener{
 
         correcto=true;
         bTextVisible=false;
-
-        //el progress bar es invisible desde un principio
-        imLoading=findViewById(R.id.imLoading);
         formatEmail=false;
     }
 
@@ -92,8 +88,9 @@ public class Registro extends AppCompatActivity implements View.OnClickListener{
                 break;
             case R.id.btnAtras:
                 //si pulso en el boton atras que vaya a la ventana de inicio
-                Intent inicio=new Intent(getApplicationContext(),MainActivity.class);
-                startActivity(inicio);
+                /*Intent inicio=new Intent(getApplicationContext(),MainActivity.class);
+                startActivity(inicio);*/
+                onBackPressed();
                 break;
             case R.id.btnShowPass2:
                 //
